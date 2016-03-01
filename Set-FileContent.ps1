@@ -6,10 +6,16 @@
 Function Set-FileContent
 {
 	[CmdletBinding()]
-	PARAM (
-	[string]$Filepath,
-	[string[]]$FindString,
-	[string[]]$ReplaceString
+	PARAM
+	(
+		[ValidateNotNullOrEmpty()]
+		[string]$Filepath,
+	
+		[ValidateNotNullOrEmpty()]
+		[string[]]$FindString,
+	
+		[ValidateNotNullOrEmpty()]
+		[string[]]$ReplaceString
 	)
 
 	$FileContent = [System.IO.File]::ReadAllText("$Filepath")
